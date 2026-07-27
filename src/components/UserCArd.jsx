@@ -1,21 +1,21 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 const UserCArd = ({ user }) => {
   const [status, setStatus] = useState(user.online);
 
   const statusChange = () => {
-    setStatus(!status)
+    setStatus(prev=>!prev)
+    // console.log(status)
   };
 
   return (
-    <div className="border border-2 m-2  p-2">
+    <div className=" border-2 m-2  p-2">
       <h3>Name : {user.name}</h3>
       <p>Job : {user.role}</p>
       <p>status : {status ? "🟢 online" : " 🔴 offline"}</p>
       <button
-        onClick={() => {
-          statusChange;
-        }}
+      className="border-2 p-2 bg-gray-800 text-amber-50" 
+        onClick={statusChange}
       >
         status
       </button>
